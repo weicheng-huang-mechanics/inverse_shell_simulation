@@ -99,7 +99,7 @@ void elasticBendingForce::computeFb()
 
         for (int j = 0; j < 18; j++)
         {
-            if ( arrayNum(j) > 0 )
+            if ( arrayNum(j) >= 0 )
             {
                 stepper->addForce(arrayNum(j), derivative(j) );
             }
@@ -110,7 +110,7 @@ void elasticBendingForce::computeFb()
         {
             for (int k = 0; k < 18; k++)
             {
-                if ( arrayNum(j) > 0 && arrayNum(k) > 0 )
+                if ( arrayNum(j) >= 0 && arrayNum(k) >= 0 )
                 {
                     stepper->addJacobian(arrayNum(j), arrayNum(k), hessian(j,k) );
                 }
@@ -139,7 +139,7 @@ void elasticBendingForce::setFirstJacobian()
             for (int k = 0; k < 18; k++)
             {
 
-                if ( arrayNum(j) > 0 && arrayNum(k) > 0 )
+                if ( arrayNum(j) >= 0 && arrayNum(k) >= 0 )
                 {
                     stepper->addJacobian(arrayNum(j), arrayNum(k), 1);
                 }
